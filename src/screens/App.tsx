@@ -1,23 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import {
-  FlatList,
-  SafeAreaView,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-} from 'react-native';
+import { FlatList, SafeAreaView, StyleSheet } from 'react-native';
+import ElementView from '../components/ElementView';
 
 const apiToFetch = 'https://api.thecatapi.com/v1/images/search?limit=10&page=1';
+
 type listElement = {
   id: string;
   url: string;
 };
-
-const ElementView = ({ id, url }: listElement) => (
-  <TouchableOpacity>
-    <Image style={styles.image} key={id} source={{ uri: url }} />
-  </TouchableOpacity>
-);
 
 const App = () => {
   const [DATA, updateData] = useState({ data: [] });
@@ -67,11 +57,6 @@ App.options = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  image: {
-    width: '100%',
-    height: 200,
-    borderRadius: 4,
   },
   item: {
     backgroundColor: '#f9c2ff',

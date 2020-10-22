@@ -1,12 +1,20 @@
 import React from 'react';
-import { Text, SafeAreaView } from 'react-native';
+import { Image, TouchableOpacity, StyleSheet } from 'react-native';
 
-const ElementView = (props: any) => {
+const ElementView = (props: { id: string; url: string }) => {
   return (
-    <SafeAreaView>
-      <Text>This is a basic element # {props.id}</Text>
-    </SafeAreaView>
+    <TouchableOpacity>
+      <Image style={styles.image} key={props.id} source={{ uri: props.url }} />
+    </TouchableOpacity>
   );
 };
+
+const styles = StyleSheet.create({
+  image: {
+    width: '100%',
+    height: 200,
+    borderRadius: 4,
+  },
+});
 
 export default ElementView;
