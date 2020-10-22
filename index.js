@@ -13,7 +13,7 @@ Navigation.events().registerAppLaunchedListener(() => {
         children: [
           {
             component: {
-              name: 'MainScreen',
+              name: 'App',
             },
           },
         ],

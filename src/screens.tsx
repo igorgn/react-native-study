@@ -4,6 +4,6 @@ import App from './screens/App';
 import Settings from './screens/Settings';
 
 export function registerScreens() {
-  Navigation.registerComponent('MainScreen', () => App);
+  Navigation.registerComponent('App', () => App);
   Navigation.registerComponent('Settings', () => Settings);
 }

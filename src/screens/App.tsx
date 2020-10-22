@@ -21,11 +21,14 @@ const ElementView = ({ id, url }: listElement) => (
 
 const App = () => {
   const [DATA, updateData] = useState({ data: [] });
+  const [isRefreshing, setRefreshing] = useState(false);
 
   const fetchCats = async () => {
+    setRefreshing(true);
     const resp = await fetch(apiToFetch);
     const respJson = await resp.json();
     updateData({ data: respJson });
+    setRefreshing(false);
   };
 
   useEffect(() => {
@@ -42,6 +45,8 @@ const App = () => {
         data={DATA.data}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
+        onRefresh={fetchCats}
+        refreshing={isRefreshing}
       />
     </SafeAreaView>
   );
