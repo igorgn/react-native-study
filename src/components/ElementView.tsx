@@ -1,10 +1,13 @@
 import React from 'react';
-import { Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { TouchableOpacity, StyleSheet, Text } from 'react-native';
+import { listElement } from '../components';
 
-const ElementView = (props: { id: string; url: string }) => {
+const ElementView = (props: listElement) => {
   return (
-    <TouchableOpacity>
-      <Image style={styles.image} key={props.id} source={{ uri: props.url }} />
+    <TouchableOpacity style={styles.image}>
+      <Text>
+        {props.name} has price of {props.quote.USD.price} USD
+      </Text>
     </TouchableOpacity>
   );
 };
@@ -12,7 +15,7 @@ const ElementView = (props: { id: string; url: string }) => {
 const styles = StyleSheet.create({
   image: {
     width: '100%',
-    height: 200,
+    height: 50,
     borderRadius: 4,
   },
 });
