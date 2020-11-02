@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { FlatList, SafeAreaView, StyleSheet, Text } from 'react-native';
+import { FlatList, SafeAreaView, StyleSheet } from 'react-native';
 import { listElement } from '../components';
 import ElementView from '../components/ElementView';
 
-const cryptosBaseApi = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=20&convert=USD';
+// const cryptosBaseApi = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=20&convert=USD';
+const cryptosBaseApi = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=20&convert=USD';
 const options = {
   headers: {
     Accept: 'application/json',
     // 'Accept-Encoding': 'deflate, gzip',
-    'X-CMC_PRO_API_KEY': 'b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c',
+    'X-CMC_PRO_API_KEY': '3ec8084b-0e44-4cb2-8b98-ec9507cbdfe2',
   },
   method: 'GET',
 };
@@ -22,8 +23,7 @@ const App = () => {
     const response = await fetch(cryptosBaseApi, options);
     const responseJson = await response.json();
     updateData({ data: responseJson.data });
-    // const icons = await fetchIcons(icon);
-    console.log(responseJson.data);
+    // console.log(responseJson.data);
     setRefreshing(false);
   };
 
@@ -43,7 +43,7 @@ const App = () => {
 App.options = {
   topBar: {
     title: {
-      text: 'HOME',
+      text: 'Crypto Tracker',
       color: 'white',
     },
     background: {
