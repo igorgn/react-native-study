@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { FlatList, SafeAreaView, StyleSheet } from 'react-native';
+import { FlatList, SafeAreaView, StyleSheet, Text } from 'react-native';
 import { listElement } from '../components';
 import ElementView from '../components/ElementView';
 
-const cryptoApi = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=20&convert=USD';
+const cryptosBaseApi = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=20&convert=USD';
 const options = {
   headers: {
     Accept: 'application/json',
@@ -19,10 +19,11 @@ const App = () => {
 
   const fetchCrypto = async () => {
     setRefreshing(true);
-    const resp = await fetch(cryptoApi, options);
-    const respo = await resp.json();
-    updateData({ data: respo.data });
-    console.log(respo.data);
+    const response = await fetch(cryptosBaseApi, options);
+    const responseJson = await response.json();
+    updateData({ data: responseJson.data });
+    // const icons = await fetchIcons(icon);
+    console.log(responseJson.data);
     setRefreshing(false);
   };
 
@@ -30,7 +31,7 @@ const App = () => {
     fetchCrypto();
   }, []);
 
-  const renderItem = ({ item }: { item: listElement }) => <ElementView id={item.id} name={item.name} quote={item.quote} />;
+  const renderItem = ({ item }: { item: listElement }) => <ElementView id={item.id} name={item.name} symbol={item.symbol} quote={item.quote} />;
 
   return (
     <SafeAreaView style={styles.container}>
