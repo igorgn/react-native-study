@@ -1,5 +1,5 @@
 {
-  "name": "CryptoApp",
+  "name": "sApp",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -30,7 +30,7 @@
     "node-fetch": "^2.6.1",
     "react-test-renderer": "16.13.1",
     "typescript": "^3.8.3"
-  },
+  }
   "jest": {
     "preset": "react-native",
     "moduleFileExtensions": [
