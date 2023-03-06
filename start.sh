@@ -14,4 +14,5 @@ git checkout $REV
 npm install npm@8
 npm install --legacy-peer-deps
 
+echo $COMM
 $COMM
