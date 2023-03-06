@@ -12,7 +12,7 @@ git clone $REPO && cd $FN
 git checkout $REV
 
 npm install npm@8
-export PATH=./node_modules/bin:$PATH
+export PATH=$(pwd)/node_modules/.bin:$PATH
 #npm install --legacy-peer-deps
 
 echo $COMM
