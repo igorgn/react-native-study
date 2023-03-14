@@ -1,16 +1,5 @@
 #!/bin/bash -e
 
-generate_allure_report() {
-    rm -rf "artifacts/allure-results" && mkdir -p artifacts
-
-    find artifacts -type d -name allure-results -exec cp -r {} artifacts \;
-
-    if [ -d "artifacts/allure-results" ];then
-        cd artifacts && allure generate --clean || echo 'allure is not installed..'
-fi
-}
-
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 nvm install 14
@@ -33,5 +22,11 @@ bash -c "$COMM"
 
 cd ..
 
-generate_allure_report
+rm -rf "artifacts/allure-results" && mkdir -p artifacts
+
+find $FN -type d -name allure-results -exec cp -r {} artifacts \;
+
+if [ -d "artifacts/allure-results" ];then
+    cd artifacts && allure generate --clean || echo 'allure is not installed..'
+fi
 
