@@ -28,6 +28,6 @@ find $FN -type d -name allure-results -exec cp -r {} artifacts \;
 
 if [ -d "artifacts/allure-results" ];then
     cd artifacts && allure generate --clean || echo 'allure is not installed..'
-    tar -zcf allure-$BUILDKITE_PIPELINE_SLUG-$BUILDKITE_BUILD_NUMBER allure-report
+    tar -zcf allure-$BUILDKITE_PIPELINE_SLUG-$BUILDKITE_BUILD_NUMBER.tgz allure-report
 fi
 
