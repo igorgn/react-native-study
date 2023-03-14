@@ -30,7 +30,6 @@ export PATH=$(pwd)/node_modules/.bin:$PATH
 
 echo $COMM
 bash -c "$COMM"
-bash generate_allure_report.sh
 
 cd ..
 
