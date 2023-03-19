@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-# echo $BUILDKITE_AGENT_ACCESS_TOKEN > ~/token
+echo $BUILDKITE_AGENT_ACCESS_TOKEN > ~/token
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 nvm install 14
