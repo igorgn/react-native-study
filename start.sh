@@ -1,7 +1,8 @@
-#!/bin/bash 
+#!/bin/bash
 
-bash build.sh
-ec=$?
-bash allure_report.sh
+./build.sh
+export ec=$?
+./allure_report.sh
 
+echo "exit code: $ec"
 [[ $ec -ne 0 ]] && exit $ec || exit 0

@@ -1,4 +1,7 @@
 #!/bin/bash -e
+rm -rf "artifacts/allure-results" && mkdir -p artifacts
+
+find $FN -type d -name allure-results -exec cp -r {} artifacts \;
 
 if [ -d "artifacts/allure-results" ];then
     cd artifacts && allure generate --clean || echo 'allure is not installed..'
