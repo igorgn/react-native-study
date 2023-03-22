@@ -1,6 +1,6 @@
 #!/bin/bash -e
 rm -rf "artifacts/allure-results" && mkdir -p artifacts
-
+FN=$(echo $REPO | awk  -F / '{ print $2 }' | cut -d . -f 1)
 find $FN -type d -name allure-results -exec cp -r {} artifacts \;
 
 if [ -d "artifacts/allure-results" ];then
